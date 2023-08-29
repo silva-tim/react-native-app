@@ -7,8 +7,6 @@
   "scripts": {
     "prepare": "husky install",
     "lint": "prettier --write .",
-    "prepare": "husky install",
-    "lint": "prettier --write .",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
