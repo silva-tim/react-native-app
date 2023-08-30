@@ -5,7 +5,7 @@ export default function Home() {
     <View style={{ backgroundColor: 'white', height: 1000 }}>
       <ScrollView>
         <View
-          style={{ backgroundColor: '#31B6A8', height: 350, paddingTop: 50 }}
+          style={{ backgroundColor: '#31B6A8', height: 350, paddingTop: 35 }}
         >
           <View style={styles.view}>
             <Text style={styles.text}>Income</Text>
@@ -28,6 +28,17 @@ export default function Home() {
             <Text style={styles.buttonText}>Add Income</Text>
           </Pressable>
           <Text style={styles.changesHeader}>Recent Changes</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              paddingBottom: 10,
+            }}
+          >
+            <Text style={{ fontSize: 20, color: 'red' }}>- $40</Text>
+            <Text style={{ fontSize: 20 }}>Restaurants</Text>
+            <Text style={{ fontSize: 20 }}>Aug. 10</Text>
+          </View>
         </View>
         <View style={styles.overscroll} />
       </ScrollView>
@@ -66,6 +77,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: '100%',
   },
   buttonText: {
     fontSize: 25,
@@ -82,6 +94,6 @@ const styles = StyleSheet.create({
   changesHeader: {
     textAlign: 'center',
     fontSize: 25,
-    paddingTop: 10,
+    paddingVertical: 10,
   },
 });
