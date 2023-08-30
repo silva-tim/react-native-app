@@ -17,20 +17,19 @@ export default function Home() {
           </View>
           <View style={styles.barsContainer}>
             <View style={styles.bars} />
-            <View style={styles.bars} />
+            <View style={[styles.bars, { backgroundColor: 'red' }]} />
           </View>
         </View>
-        <View>
+        <View style={{ backgroundColor: 'white' }}>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>Add Expense</Text>
           </Pressable>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>Add Income</Text>
           </Pressable>
-          <Text style={{ textAlign: 'center', fontSize: 25, paddingTop: 10 }}>
-            Recent Changes
-          </Text>
+          <Text style={styles.changesHeader}>Recent Changes</Text>
         </View>
+        <View style={styles.overscroll} />
       </ScrollView>
     </View>
   );
@@ -71,5 +70,18 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 25,
     color: 'white',
+  },
+  overscroll: {
+    backgroundColor: '#31B6A8',
+    height: 1000,
+    position: 'absolute',
+    top: -1000,
+    left: 0,
+    right: 0,
+  },
+  changesHeader: {
+    textAlign: 'center',
+    fontSize: 25,
+    paddingTop: 10,
   },
 });
