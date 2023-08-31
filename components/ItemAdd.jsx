@@ -35,7 +35,7 @@ export default function ItemAdd() {
         value={input}
         onChangeText={(text) => setInput(text)}
         style={{
-          backgroundColor: 'gray',
+          borderBottomWidth: 1,
           height: '60%',
           textAlign: 'center',
           fontSize: 40,
