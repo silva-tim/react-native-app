@@ -7,7 +7,7 @@ export default function Home() {
   const [type, setType] = useState('');
 
   if (itemAdd) {
-    return <ItemAdd onCancel={() => setItemAdd(false)} />;
+    return <ItemAdd onCancel={() => setItemAdd(false)} type={type} />;
   }
 
   return (
@@ -30,10 +30,22 @@ export default function Home() {
           </View>
         </View>
         <View style={{ backgroundColor: 'white' }}>
-          <Pressable onPress={() => setItemAdd(true)} style={styles.button}>
+          <Pressable
+            onPress={() => {
+              setType('Expense');
+              setItemAdd(true);
+            }}
+            style={styles.button}
+          >
             <Text style={styles.buttonText}>Add Expense</Text>
           </Pressable>
-          <Pressable style={styles.button}>
+          <Pressable
+            onPress={() => {
+              setType('Income');
+              setItemAdd(true);
+            }}
+            style={styles.button}
+          >
             <Text style={styles.buttonText}>Add Income</Text>
           </Pressable>
           <Text style={styles.changesHeader}>Recent Changes</Text>

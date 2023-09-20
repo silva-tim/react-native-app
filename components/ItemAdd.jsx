@@ -9,7 +9,7 @@ import {
 import { useState } from 'react';
 import { TextInputMask } from 'react-native-masked-text';
 
-export default function ItemAdd({ onCancel }) {
+export default function ItemAdd({ onCancel, type }) {
   const [input, setInput] = useState('0');
 
   return (
@@ -28,31 +28,35 @@ export default function ItemAdd({ onCancel }) {
           <Text style={{ fontSize: 18 }}>Cancel</Text>
         </Pressable>
         <Text style={{ flex: 1, textAlign: 'center', fontSize: 20 }}>
-          Add Expense
+          Add {type}
         </Text>
         <View style={{ flex: 1 }} />
       </View>
-      <TextInputMask
-        type={'money'}
-        options={{
-          precision: 2,
-          separator: '.',
-          delimiter: ',',
-          unit: '$',
-          suffixUnit: '',
-        }}
-        value={input}
-        onChangeText={(text) => setInput(text)}
-        style={{
-          height: '40%',
-          textAlign: 'center',
-          fontSize: 40,
-        }}
-        autoFocus
-      />
-      <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Choose a category</Text>
-      </Pressable>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+      >
+        <TextInputMask
+          type={'money'}
+          options={{
+            precision: 2,
+            separator: '.',
+            delimiter: ',',
+            unit: '$',
+            suffixUnit: '',
+          }}
+          value={input}
+          onChangeText={(text) => setInput(text)}
+          style={{
+            height: '40%',
+            textAlign: 'center',
+            fontSize: 40,
+          }}
+        />
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Choose a category</Text>
+        </Pressable>
+      </ScrollView>
     </View>
   );
 }
