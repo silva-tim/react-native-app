@@ -1,12 +1,19 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  Pressable,
+} from 'react-native';
 import { useState } from 'react';
 import { TextInputMask } from 'react-native-masked-text';
 
-export default function ItemAdd() {
+export default function ItemAdd({ onCancel }) {
   const [input, setInput] = useState('0');
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={{ paddingTop: 50 }} />
       <View
         style={{
@@ -17,7 +24,9 @@ export default function ItemAdd() {
           paddingHorizontal: 5,
         }}
       >
-        <Text style={{ flex: 1, fontSize: 18 }}>Cancel</Text>
+        <Pressable onPress={onCancel} style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18 }}>Cancel</Text>
+        </Pressable>
         <Text style={{ flex: 1, textAlign: 'center', fontSize: 20 }}>
           Add Expense
         </Text>
@@ -35,13 +44,38 @@ export default function ItemAdd() {
         value={input}
         onChangeText={(text) => setInput(text)}
         style={{
-          borderBottomWidth: 1,
-          height: '60%',
+          height: '40%',
           textAlign: 'center',
           fontSize: 40,
         }}
         autoFocus
       />
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>Choose a category</Text>
+      </Pressable>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+  },
+  buttonText: {
+    fontSize: 20,
+  },
+  container: {
+    position: 'absolute',
+    zIndex: 10,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'white',
+  },
+});

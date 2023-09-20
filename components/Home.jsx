@@ -1,6 +1,15 @@
 import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { useState } from 'react';
+import ItemAdd from './ItemAdd';
 
 export default function Home() {
+  const [itemAdd, setItemAdd] = useState(false);
+  const [type, setType] = useState('');
+
+  if (itemAdd) {
+    return <ItemAdd onCancel={() => setItemAdd(false)} />;
+  }
+
   return (
     <View style={{ backgroundColor: 'white', height: 1000 }}>
       <ScrollView>
@@ -21,7 +30,7 @@ export default function Home() {
           </View>
         </View>
         <View style={{ backgroundColor: 'white' }}>
-          <Pressable style={styles.button}>
+          <Pressable onPress={() => setItemAdd(true)} style={styles.button}>
             <Text style={styles.buttonText}>Add Expense</Text>
           </Pressable>
           <Pressable style={styles.button}>
