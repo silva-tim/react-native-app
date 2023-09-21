@@ -25,7 +25,9 @@ export default function ItemAdd({ onCancel, type }) {
         }}
       >
         <Pressable onPress={onCancel} style={{ flex: 1 }}>
-          <Text style={{ fontSize: 18 }}>Cancel</Text>
+          <Text style={{ fontSize: 18, paddingStart: 10, color: '#31B6A8' }}>
+            Cancel
+          </Text>
         </Pressable>
         <Text style={{ flex: 1, textAlign: 'center', fontSize: 20 }}>
           Add {type}
@@ -52,6 +54,7 @@ export default function ItemAdd({ onCancel, type }) {
             textAlign: 'center',
             fontSize: 40,
           }}
+          autofocus
         />
         <Pressable style={styles.button}>
           <Text style={styles.buttonText}>Choose a category</Text>

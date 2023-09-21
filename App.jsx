@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import NavBar from './components/NavBar';
+import Menu from './components/Menu';
 import Home from './components/Home';
-import ItemAdd from './components/ItemAdd';
 
 export default function App() {
   return (
@@ -10,7 +10,6 @@ export default function App() {
       <NavBar />
       <Home />
       <StatusBar style="auto" />
-      {/* <ItemAdd /> */}
     </View>
   );
 }
